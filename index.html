@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest & Guardian Induction Acknowledgement</title>
+  <link rel="icon" type="image/png" href="brand.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      background: #f7f9fa;
+      margin: 0;
+      padding: 0;
+      color: #1a1a1a;
+      font-size: 0.97rem;
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 80%;
+      margin: 32px auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      padding: 40px 32px 32px 32px;
+    }
+    .brand {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .brand img {
+      height: 100px;
+      width: auto;
+      object-fit: contain;
+    }
+    h1 {
+      font-size: 1.7rem;
+      text-align: center;
+      margin-bottom: 10px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #4a4a4a;
+      font-size: 1.01rem;
+      margin-bottom: 28px;
+      font-weight: 500;
+    }
+    .section {
+      margin-bottom: 28px;
+    }
+    .section-title {
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      font-size: 1.05rem;
+      letter-spacing: -0.2px;
+      color: #1e293b;
+    }
+    .section-title span {
+      margin-right: 10px;
+      font-size: 1.18em;
+    }
+    .section ul, .section ol {
+      margin: 0 0 0 28px;
+      padding: 0;
+    }
+    .section li {
+      margin-bottom: 8px;
+      font-size: 0.97rem;
+    }
+    .email-row {
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      font-size: 0.97rem;
+    }
+    .email-label {
+      font-weight: 500;
+      margin-right: 8px;
+    }
+    .email-input {
+      background: #f0f0f0;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 10px;
+      font-size: 0.97rem;
+      width: 100%;
+      max-width: 320px;
+      color: #333;
+    }
+    .email-support {
+      font-size: 0.97em;
+      color: #888;
+      margin-left: 8px;
+    }
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      margin: 28px 0 16px 0;
+    }
+    .custom-checkbox {
+      width: 24px;
+      height: 24px;
+      accent-color: #1e88e5;
+      margin-right: 14px;
+      margin-top: 2px;
+    }
+    .checkbox-label {
+      font-size: 0.99rem;
+      user-select: none;
+      font-weight: 500;
+      color: #222;
+      line-height: 1.6;
+    }
+    .submit-btn {
+      display: block;
+      margin: 18px auto 0 auto;
+      width: 180px;
+      background: #1e88e5;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 9px 0;
+      font-size: 1.01rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      opacity: 0.7;
+      letter-spacing: 0.02em;
+      text-align: center;
+    }
+    .submit-btn:enabled {
+      opacity: 1;
+      background: #1565c0;
+    }
+    .note {
+      font-size: 0.93em;
+      color: #888;
+      margin-top: 10px;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 16px 4vw 18px 4vw;
+      }
+      h1 {
+        font-size: 1.05rem;
+      }
+      .section-title {
+        font-size: 0.93rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="brand">
+      <img src="brand.png" alt="Century Cricket Brand Logo">
+    </div>
+    <h1>🛡 Guest & Guardian Induction Acknowledgement</h1>
+    <div class="subtitle">
+      Welcome to Century Cricket - [Facility Name] – a tech-enabled, safety-first sports environment.<br>
+      <b>This induction is mandatory for all guests and guardians before accessing training areas, digital systems, or supervised zones.</b>
+    </div>
+    <form id="inductionForm" autocomplete="off">
+      <div class="section">
+        <div class="section-title"><span>🔐</span>1. Access & Check-In</div>
+        <ul>
+          <li>All guests and guardians must check in via the mobile app, tablet, or reception kiosk before entering the facility.</li>
+          <li>Access is linked to a pre-approved booking by a member, coach, or admin.</li>
+          <li>Entry outside of assigned zones or time windows is strictly prohibited.</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title"><span>🏏</span>2. Lane Area Safety</div>
+        <ul>
+          <li>Entry into live lanes, net areas, or coaching zones is permitted only under supervision.</li>
+          <li>Crossing active bowling lanes or retrieving equipment from restricted areas without staff permission is prohibited.</li>
+          <li>All participants must wear appropriate sports shoes and safety gear where applicable.</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title"><span>🧑‍🏫</span>3. Supervision & Behavior</div>
+        <ul>
+          <li>Guests must always remain under the visual supervision of the hosting member, coach, or staff.</li>
+          <li>Guardians accompanying juniors are expected to:
+            <ul>
+              <li>Remain in designated observation or waiting zones.</li>
+              <li>Avoid direct intervention in sessions unless specifically invited by staff.</li>
+            </ul>
+          </li>
+          <li>Facility reserves the right to remove guests or guardians in case of disruptive, unsafe, or non-compliant behavior.</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title"><span>⚠️</span>4. Emergency & First Aid</div>
+        <ul>
+          <li>Emergency exits are clearly marked; in case of an alert, follow staff guidance and evacuation protocols.</li>
+          <li>Trained first-aid support is available on site. Report any injury or issue to facility staff immediately.</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title"><span>📲</span>5. Digital Systems & Devices</div>
+        <ul>
+          <li>Some zones use cameras, lane control tablets, and smart training systems for coaching and analytics.</li>
+          <li>Guests and guardians are not permitted to operate any digital systems (e.g., bowling machine controller, review screens, or lane tablet) unless directed by a coach.</li>
+          <li>Mobile devices should be on silent mode and not interfere with training sessions.</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title"><span>👤</span>6. Code of Conduct</div>
+        <ul>
+          <li>Respect all users, staff, and other visitors.</li>
+          <li>Aggressive, inappropriate, or non-cooperative behavior will result in immediate expulsion from the premises.</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title"><span>👨‍👩‍👧</span>For Guardians of Junior Players</div>
+        <ul>
+          <li>If you are attending as a guardian of a minor (under 18):
+            <ul>
+              <li>You are here solely for supervision and support.</li>
+              <li>You must install and activate the facility app to receive entry PINs, session updates, and notifications.</li>
+              <li>You are responsible for ensuring your ward complies with safety and behavioral protocols.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="section" style="margin-top: 40px;">
+        <div class="section-title"><span>✅</span>Induction Confirmation</div>
+        <div class="checkbox-row" style="margin-bottom: 24px;">
+          <input type="checkbox" id="acknowledge" class="custom-checkbox">
+          <label for="acknowledge" class="checkbox-label">I acknowledge and accept the Guest Induction guidelines and agree to follow all instructions and safety protocols.<br><span style="font-size:0.93em;color:#888;">(You must tick the checkbox to continue.)</span></label>
+        </div>
+        
+         
+      </div>
+      <button type="submit" class="submit-btn" id="submitBtn" disabled>Submit & Continue</button>
+    </form>
+  </div>
+  <script>
+    const acknowledgeCheckbox = document.getElementById('acknowledge');
+    const submitBtn = document.getElementById('submitBtn');
+    function updateSubmitState() {
+      submitBtn.disabled = !acknowledgeCheckbox.checked;
+    }
+    acknowledgeCheckbox.addEventListener('change', updateSubmitState);
+    document.getElementById('inductionForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      submitBtn.textContent = 'Thank you!';
+      submitBtn.disabled = true;
+      submitBtn.style.background = '#43a047';
+      submitBtn.style.opacity = 1;
+    });
+  </script>
+</body>
+</html> 
