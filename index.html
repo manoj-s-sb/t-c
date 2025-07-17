@@ -163,10 +163,14 @@
     </div>
     <h1>🛡 Guest & Guardian Induction Acknowledgement</h1>
     <div class="subtitle">
-      Welcome to Century Cricket - [Facility Name] – a tech-enabled, safety-first sports environment.<br>
+      Welcome to Century Cricket - <span id="facilityName">[Facility Name]</span> – a tech-enabled, safety-first sports environment.<br>
       <b>This induction is mandatory for all guests and guardians before accessing training areas, digital systems, or supervised zones.</b>
     </div>
     <form id="inductionForm" autocomplete="off">
+      <div class="email-row" id="emailRow" style="display:none;">
+        <span class="email-label">Email:</span>
+        <input type="text" id="emailInput" class="email-input" readonly>
+      </div>
       <div class="section">
         <div class="section-title"><span>🔐</span>1. Access & Check-In</div>
         <ul>
@@ -243,6 +247,27 @@
     </form>
   </div>
   <script>
+    // --- URL Params Logic ---
+    function getQueryParams() {
+      const params = {};
+      window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+        params[decodeURIComponent(key)] = decodeURIComponent(value.replace(/\+/g, ' '));
+      });
+      return params;
+    }
+    const params = getQueryParams();
+    // Set facility name
+    if (params.facility) {
+      document.getElementById('facilityName').textContent = params.facility;
+    }
+    // Set email if present
+    if (params.email) {
+      const emailRow = document.getElementById('emailRow');
+      const emailInput = document.getElementById('emailInput');
+      emailInput.value = params.email;
+      emailRow.style.display = 'flex';
+    }
+    // --- Existing logic ---
     const acknowledgeCheckbox = document.getElementById('acknowledge');
     const submitBtn = document.getElementById('submitBtn');
     function updateSubmitState() {
