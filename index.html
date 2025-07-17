@@ -251,6 +251,7 @@
       <button type="submit" class="submit-btn" id="submitBtn" disabled>Submit & Continue</button>
     </form>
   </div>
+  <div id="toast" style="display:none;position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:#323232;color:#fff;padding:14px 28px;border-radius:8px;font-size:1.01rem;z-index:9999;box-shadow:0 2px 12px rgba(0,0,0,0.18);transition:opacity 0.3s;opacity:0.95;"></div>
   <script>
     // --- URL Params Logic ---
     function getQueryParams() {
@@ -272,6 +273,17 @@
       emailLabel.textContent = params.email;
       emailRow.style.display = 'flex';
     }
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.style.display = 'block';
+      toast.style.opacity = 0.95;
+      setTimeout(() => {
+        toast.style.opacity = 0;
+        setTimeout(() => { toast.style.display = 'none'; }, 400);
+      }, 3000);
+    }
+
     // --- Existing logic ---
     const acknowledgeCheckbox = document.getElementById('acknowledge');
     const submitBtn = document.getElementById('submitBtn');
@@ -279,12 +291,62 @@
       submitBtn.disabled = !acknowledgeCheckbox.checked;
     }
     acknowledgeCheckbox.addEventListener('change', updateSubmitState);
-    document.getElementById('inductionForm').addEventListener('submit', function(e) {
+
+    document.getElementById('inductionForm').addEventListener('submit', async function(e) {
       e.preventDefault();
-      submitBtn.textContent = 'Thank you!';
+      submitBtn.textContent = 'Submitting...';
       submitBtn.disabled = true;
-      submitBtn.style.background = '#43a047';
-      submitBtn.style.opacity = 1;
+      submitBtn.style.background = '#1e88e5';
+      submitBtn.style.opacity = 0.7;
+
+      // Get email from params
+      const email = params.email;
+      if (!email) {
+        showToast('Email is required.');
+        submitBtn.textContent = 'Submit & Continue';
+        submitBtn.disabled = false;
+        submitBtn.style.background = '#1565c0';
+        submitBtn.style.opacity = 1;
+        return;
+      }
+
+      try {
+        const res = await fetch('https://sbcc-func-dev.azurewebsites.net/induction/terms/accept', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        const data = await res.json();
+        if (res.status === 200 || res.status === 201) {
+          showToast(data.data && data.data.nextStep ? data.data.nextStep : 'Success!');
+          setTimeout(() => {
+            if (data.data && data.data.signupUrl) {
+              window.location.href = data.data.signupUrl;
+            }
+          }, 3000);
+          submitBtn.textContent = 'Thank you!';
+          submitBtn.style.background = '#43a047';
+          submitBtn.style.opacity = 1;
+        } else if (res.status === 400) {
+          showToast(data.message || 'An error occurred.');
+          submitBtn.textContent = 'Submit & Continue';
+          submitBtn.disabled = false;
+          submitBtn.style.background = '#1565c0';
+          submitBtn.style.opacity = 1;
+        } else {
+          showToast('Unexpected error. Please try again.');
+          submitBtn.textContent = 'Submit & Continue';
+          submitBtn.disabled = false;
+          submitBtn.style.background = '#1565c0';
+          submitBtn.style.opacity = 1;
+        }
+      } catch (err) {
+        showToast('Network error. Please try again.');
+        submitBtn.textContent = 'Submit & Continue';
+        submitBtn.disabled = false;
+        submitBtn.style.background = '#1565c0';
+        submitBtn.style.opacity = 1;
+      }
     });
   </script>
 </body>
